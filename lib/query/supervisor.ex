@@ -9,6 +9,8 @@ defmodule Query.Supervisor do
     children = [
       worker(Query.ArticleQuery, [:article_query_server]),
       worker(Query.ClientQuery, [:client_query_server]),
+
+      # TODO - Another possibility would be to use a GenEvent for the Article and Client query
       worker(Query.CommandListener, [:command_listener,
         [{:article_query_server_handler,
           fn c, a -> Query.ArticleQuery.add_purchase(:article_query_server, c, a) end},
