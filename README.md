@@ -1,6 +1,7 @@
 # CQRS
 
-**TODO: Add description**
+The goal of this is to experiment with Elixir to build
+a small program following the CQRS architecture.
 
 ## Installation
 
@@ -21,4 +22,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [applications: [:cqrs]]
     end
     ```
-
