@@ -41,10 +41,6 @@ defmodule Query.ClientQuery do
       fn articles ->
         [article_id | articles || []]
       end)
-
-    #get_in(%{"toto" => %{"titi" => 1}}, ["toto", "titi"])
-    #update_in(%{"toto" => %{"titi" => 1}}, ["toto", "titi"], &(&1 + 1))
-
     {:reply, Map.fetch(new_state.articles_by_client, client_name), new_state}
   end
 
