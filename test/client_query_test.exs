@@ -9,7 +9,7 @@ defmodule ClientQueryTest do
 
   test "Can add clients in the service", %{server: server} do
     assert Query.ClientQuery.article_of(server, "John") == :error
-    assert Query.ClientQuery.add_article(server, "John", 1) == {:ok, [1]}
+    assert Query.ClientQuery.add_purchase(server, "John", 1) == {:ok, [1]}
     assert Query.ClientQuery.article_of(server, "John") == {:ok, [1]}
   end
 end

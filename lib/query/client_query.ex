@@ -17,8 +17,8 @@ defmodule Query.ClientQuery do
     GenServer.call(server, {:client_article, client_name})
   end
 
-  def add_article(server, client_name, article_id) do
-    GenServer.call(server, {:new_article, client_name, article_id})
+  def add_purchase(server, client_name, article_id) do
+    GenServer.call(server, {:add_purchase, client_name, article_id})
   end
 
 
@@ -27,7 +27,7 @@ defmodule Query.ClientQuery do
   # -----------------------------------------------------------
 
   def init(:ok) do
-    state = %{articles_by_client: %{}, client_names: %{}}
+    state = %{articles_by_client: %{}}
     {:ok, state}
   end
 
@@ -35,7 +35,7 @@ defmodule Query.ClientQuery do
     {:reply, Map.fetch(state.articles_by_client, client_name), state}
   end
 
-  def handle_call({:new_article, client_name, article_id}, _from, state) do
+  def handle_call({:add_purchase, client_name, article_id}, _from, state) do
     new_state = update_in(
       state, [:articles_by_client, client_name],
       fn articles ->
