@@ -3,7 +3,7 @@ defmodule ClientQueryTest do
   doctest Query.ClientQuery
 
   setup do
-    {:ok, server} = Query.ClientQuery.start_link(:test_server)
+    {:ok, server} = Query.ClientQuery.start_link(:test_client)
     {:ok, server: server}
   end
 

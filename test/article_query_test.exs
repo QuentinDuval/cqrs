@@ -3,7 +3,7 @@ defmodule ArticleQueryTest do
   doctest Query.ArticleQuery
 
   setup do
-    {:ok, server} = Query.ArticleQuery.start_link(:test_server)
+    {:ok, server} = Query.ArticleQuery.start_link(:test_article)
     {:ok, server: server}
   end
 
